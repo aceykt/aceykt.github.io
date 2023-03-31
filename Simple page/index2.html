@@ -3,9 +3,17 @@
 <head> 
 <title>Travel Questionnaire<span id="selection-marker-1" class="redactor-selection-marker"></span></title> 
 
+<!-- Load analytics.js -->
+<script>
+  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics._writeKey="EbuQP0vLrtK8hLqcQsqAlPnIniuxzo3F";;analytics.SNIPPET_VERSION="4.15.3";
+  analytics.load("EbuQP0vLrtK8hLqcQsqAlPnIniuxzo3F");
+  analytics.page();
+  }}();
+</script>
+
 </head> 
 <body> 
-<!--  Consent Manager Stand Along Javascript     EbuQP0vLrtK8hLqcQsqAlPnIniuxzo3F   -->  
+<!--  Consent Manager Stand Alone Javascript  -->  
 <script type="application/javascript">
   window.consentManagerConfig = function(exports) {
     exports.preferences.onPreferencesSaved(function(prefs) {
@@ -14,7 +22,7 @@
 
     return {
       container: '#consent-manager',
-      writeKey: 'EbuQP0vLrtK8hLqcQsqAlPnIniuxzo3F',
+      writeKey: 'n2DAIaakJzCUq0saLY0LMcm9dKsqCZvU',
       /* initialPreferences allows for customizing which categories already pre-loaded */
       initialPreferences: {
         marketingAndAnalytics: false,
@@ -37,74 +45,11 @@
 
 <div id="consent-manager"></div>
 
-<button
-  type="button"
-  onclick="event.stopPropagation(); window.consentManager.openConsentManager()"
->
+<button type="button" onclick="event.stopPropagation(); window.consentManager.openConsentManager()">
   Data Collection and Cookie Preferences
 </button>
 
 <script src="./standalone/consent-manager.js" defer></script>
-
-<!-- Load analytics.js -->
-<script>
-  !(function() {
-    var analytics = (window.analytics = window.analytics || [])
-    if (!analytics.initialize)
-      if (analytics.invoked)
-        window.console && console.error && console.error('Segment snippet included twice.')
-      else {
-        analytics.invoked = !0
-        analytics.methods = [
-          'trackSubmit',
-          'trackClick',
-          'trackLink',
-          'trackForm',
-          'pageview',
-          'identify',
-          'reset',
-          'group',
-          'track',
-          'ready',
-          'alias',
-          'debug',
-          'page',
-          'once',
-          'off',
-          'on',
-          'addSourceMiddleware'
-        ]
-        analytics.factory = function(t) {
-          return function() {
-            var e = Array.prototype.slice.call(arguments)
-            e.unshift(t)
-            analytics.push(e)
-            return analytics
-          }
-        }
-        for (var t = 0; t < analytics.methods.length; t++) {
-          var e = analytics.methods[t]
-          analytics[e] = analytics.factory(e)
-        }
-        analytics.load = function(t, e) {
-          var n = document.createElement('script')
-          n.type = 'text/javascript'
-          n.async = !0
-          n.src =
-            ('https:' === document.location.protocol ? 'https://' : 'http://') +
-            'cdn.segment.com/analytics.js/v1/' +
-            t +
-            '/analytics.min.js'
-          var o = document.getElementsByTagName('script')[0]
-          o.parentNode.insertBefore(n, o)
-          analytics._loadOptions = e
-        }
-        analytics.SNIPPET_VERSION = '4.1.0'
-        analytics.page()
-      }
-  })()
-</script>
-
 
 <h1>What is your favorite place to travel?</h1> 
 <p>I am building a directory of the sweetest travel destinations.</p>  
