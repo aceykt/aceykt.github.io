@@ -2,12 +2,12 @@
 //code below loads consentManagerConfig object and specifies content popup contains. Need to update with your own writeKey and what container code should be injected to, I am using empyty div 
 
 //note, may need to view demo in debug mode to save tracking preferences in browser
-
+/*
 <script>
 window.consentManagerConfig = function(exports) {
     return {
      //Need to update with the container where you want Consent Manager to load
-      container: '#target-container',
+      container: '#consent-manager',
       //Need to update with you 
       writeKey: '338EFbDMpz7Sp9D4LCj2VLxoCbv4ixG5',
       bannerContent:
@@ -23,7 +23,7 @@ window.consentManagerConfig = function(exports) {
     }
 };
 
-/*
+
  </script>
  <!--script that loads Prebuilt Consent Manager UI via Preact-->
 <script src="https://unpkg.com/@segment/consent-manager@5.0.0/standalone/consent-manager.js"> </script>
