@@ -3,7 +3,7 @@
   <head>
     <title>Travel Questionnaire</title>
     <span id="selection-marker-1" class="redactor-selection-marker"></span>
-    <!--
+
     <script>
       window.consentManagerConfig = function (exports) {
         return {
@@ -24,12 +24,12 @@
         };
       };
     </script>
--->
-    <!--script that loads Prebuilt Consent Manager UI via Preact-->
-    <!--  <script src="https://unpkg.com/@segment/consent-manager@5.0.0/standalone/consent-manager.js"></script>
--->
 
-    <script type="application/javascript">
+    <!--script that loads Prebuilt Consent Manager UI via Preact-->
+    <script src="https://unpkg.com/@segment/consent-manager@5.0.0/standalone/consent-manager.js"></script>
+
+<!-- DROP IN CONSENT MANAGER WORKS -->
+<!--    <script type="application/javascript">
       window.consentManagerConfig = function (exports) {
         exports.preferences.onPreferencesSaved(function (prefs) {
           // could be used to store consent server side, or send it into an API
@@ -64,9 +64,9 @@
       Data Collection and Cookie Preferences
     </button>
 
-<!--    <script src="./standalone/consent-manager.js" defer></script> -->
     <script src="https://unpkg.com/@segment/consent-manager@5.0.0/standalone/consent-manager.js"> </script>
-    
+-->
+
     <script>
       !(function () {
         var analytics = (window.analytics = window.analytics || []);
