@@ -3,7 +3,7 @@
 
 //note, may need to view demo in debug mode to save tracking preferences in browser
 
-
+<script>
 window.consentManagerConfig = function(exports) {
     return {
      //Need to update with the container where you want Consent Manager to load
