@@ -3,133 +3,58 @@
   <head>
     <title>Travel Questionnaire</title>
     <span id="selection-marker-1" class="redactor-selection-marker"></span>
+    <link rel="stylesheet" href="styles.css">
+    <!-- consent mgr -->
+     <button type="button" onclick="event.stopPropagation(); window.consentManager.openConsentManager()">
+      Data Collection and Cookie Preferences
+  </button>
+  
+  <div id="consent-manager"></div>
 
-    <script>
+  <script type="application/javascript">
+    // document.addEventListener("DOMContentLoaded", function() {
       window.consentManagerConfig = function (exports) {
         return {
           //Need to update with the container where you want Consent Manager to load
           container: "#consent-manager",
-          //Need to update with you
           writeKey: "338EFbDMpz7Sp9D4LCj2VLxoCbv4ixG5",
-          bannerContent:
-            "Consent manager is awesome! We use cookies (and other similar technologies) to collect data to improve your experience on our site. Also, Segment is Awesome",
+          bannerContent: "Consent manager is awesome! We use cookies (and other similar technologies) to collect data to improve your experience on our site. Also, Segment is Awesome",
           bannerSubContent: "You can change your preferences at any time.",
           preferencesDialogTitle: "Website Data Collection Preferences",
-          preferencesDialogContent:
-            "We use data collected by cookies and JavaScript libraries to improve your browsing experience, analyze site traffic, deliver personalized advertisements, and increase the overall performance of our site.",
+          preferencesDialogContent: "We use data collected by cookies and JavaScript libraries to improve your browsing experience, analyze site traffic, deliver personalized advertisements, and increase the overall performance of our site.",
           cancelDialogTitle: "Are you sure you want to cancel?",
-          cancelDialogContent:
-            "Your preferences have not been saved. By continuing to use our website, you are agreeing to our Website Data Collection Policy",
+          cancelDialogContent: "Your preferences have not been saved. By continuing to use our website, you are agreeing to our Website Data Collection Policy",
           closeBehavior: "accept",
         };
       };
-    </script>
+    // });
+  </script>
 
-    <!--script that loads Prebuilt Consent Manager UI via Preact-->
-    <script src="https://unpkg.com/@segment/consent-manager@5.0.0/standalone/consent-manager.js"></script>
+  </head>
 
-<!-- DROP IN CONSENT MANAGER WORKS -->
-   <script type="application/javascript">
-      window.consentManagerConfig = function (exports) {
-        exports.preferences.onPreferencesSaved(function (prefs) {
-          // could be used to store consent server side, or send it into an API
-        });
+  <body>
+     <h1>What is your favorite place to travel?</h1>
+    <p>I am building a directory of the sweetest travel destinations.</p>
+    <form name="travel" onsubmit="identify(event)">
+        What is your favorite travel destination? <input name="destination" required="" size="81" type="text" /> <br /><br /><br />
+        Any recommendations (cool things to do, places to visit or restaurants to eat)? <br /><br /> <textarea cols="81" name="details" required="" rows="10"> </textarea> <br /><br />
+        Name: <input name="fullname" required="" size="75" type="text" /> <br /><br />
+        Email: <input name="email" required="" size="75" type="email" /> <br /><br /> 
+        <input name="submit" type="submit" value="submit" />
+    </form>
 
-        return {
-          container: "#consent-manager",
-          writeKey: "338EFbDMpz7Sp9D4LCj2VLxoCbv4ixG5",
-          /* initialPreferences allows for customizing which categories already pre-loaded */
-          initialPreferences: {
-            marketingAndAnalytics: false,
-            // functional: true will automatically record consent for functional cookies
-            functional: true,
-          },
-          /*
-    The consent manager ships with a lightweight version of 
-    React (preact) that you can use to customize the consent manager further
-  */
-          bannerContent: exports.React.createElement("span", null, "🍪We like cookies 🍪"),
-          bannerSubContent: "Change your preferences 👻",
-          preferencesDialogTitle: "Website Data Collection",
-          preferencesDialogContent: "We use data collected by cookies and JavaScript libraries.",
-          cancelDialogTitle: "🤔Are you sure you want to cancel?",
-          cancelDialogContent: "Your preferences have not been saved.",
-        };
-      };
-    </script>
-
-    <div id="consent-manager"></div>
-
-    <button type="button" onclick="event.stopPropagation(); window.consentManager.openConsentManager()" >
-      Data Collection and Cookie Preferences
-    </button>
-
-    <script src="https://unpkg.com/@segment/consent-manager@5.0.0/standalone/consent-manager.js"> </script>
-
-
+    <!-- a.js snippet -->
     <script>
-      !(function () {
-        var analytics = (window.analytics = window.analytics || []);
-        if (!analytics.initialize)
-          if (analytics.invoked)
-            window.console &&
-              console.error &&
-              console.error("Segment snippet included twice.");
-          else {
-            analytics.invoked = !0;
-            analytics.methods = [
-              "trackSubmit",
-              "trackClick",
-              "trackLink",
-              "trackForm",
-              "pageview",
-              "identify",
-              "reset",
-              "group",
-              "track",
-              "ready",
-              "alias",
-              "debug",
-              "page",
-              "once",
-              "off",
-              "on",
-              "addSourceMiddleware",
-              "addIntegrationMiddleware",
-              "setAnonymousId",
-              "addDestinationMiddleware",
-            ];
-            analytics.factory = function (e) {
-              return function () {
-                var t = Array.prototype.slice.call(arguments);
-                t.unshift(e);
-                analytics.push(t);
-                return analytics;
-              };
-            };
-            for (var e = 0; e < analytics.methods.length; e++) {
-              var key = analytics.methods[e];
-              analytics[key] = analytics.factory(key);
-            }
-            analytics.load = function (key, e) {
-              var t = document.createElement("script");
-              t.type = "text/javascript";
-              t.async = !0;
-              t.src =
-                "https://cdn.segment.com/analytics.js/v1/" +
-                key +
-                "/analytics.min.js";
-              var n = document.getElementsByTagName("script")[0];
-              n.parentNode.insertBefore(t, n);
-              analytics._loadOptions = e;
-            };
-            analytics._writeKey = "338EFbDMpz7Sp9D4LCj2VLxoCbv4ixG5";
-            analytics.SNIPPET_VERSION = "4.15.3";
-            analytics.load("338EFbDMpz7Sp9D4LCj2VLxoCbv4ixG5");
+      !(function () { var analytics = (window.analytics = window.analytics || []); if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else { analytics.invoked = !0; analytics.methods = [ "trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on", "addSourceMiddleware", "addIntegrationMiddleware", "setAnonymousId", "addDestinationMiddleware", ]; analytics.factory = function (e) { return function () { var t = Array.prototype.slice.call(arguments); t.unshift(e); analytics.push(t); return analytics; }; }; for (var e = 0; e < analytics.methods.length; e++) { var key = analytics.methods[e]; analytics[key] = analytics.factory(key); } analytics.load = function (key, e) { var t = document.createElement("script"); t.type = "text/javascript"; t.async = !0; t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js"; var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(t, n); analytics._loadOptions = e; }; analytics._writeKey = "338EFbDMpz7Sp9D4LCj2VLxoCbv4ixG5"; analytics.SNIPPET_VERSION = "4.15.3";
+   //         analytics.load("338EFbDMpz7Sp9D4LCj2VLxoCbv4ixG5");
             analytics.page();
           }
       })();
     </script>
+
+  <!--loads Prebuilt Consent Manager UI via Preact-->
+  <script src="https://unpkg.com/@segment/consent-manager@5.3.0/standalone/consent-manager.js" defer></script>
+
 
     <!--Javascript that controls form submits and mapping user input data to Segment Analytics.js methods-->
     <script type="text/javascript">
@@ -171,27 +96,6 @@
         });
       }
     </script>
-  </head>
 
-  <body>
-    <h1>What is your favorite place to travel?</h1>
-    <p>I am building a directory of the sweetest travel destinations.</p>
-    <form name="travel" onsubmit="identify(event)">
-      What is your favorite travel destination?
-      <input name="destination" required="" size="81" type="text" />
-      <br /><br /><br />
-      Any recommendations (cool things to do, places to visit or restaurants to
-      eat)?
-      <br /><br />
-      <textarea cols="81" name="details" required="" rows="10"> </textarea>
-      <br /><br />
-      Name: <input name="fullname" required="" size="75" type="text" />
-      <br /><br />
-      Email: <input name="email" required="" size="75" type="email" />
-      <br /><br />
-      <input name="submit" type="submit" value="submit" />
-    </form>
-    <!--  Div Below is where consent manager will be injected to  -->
-    <div id="consent-manager"></div>
   </body>
 </html>
