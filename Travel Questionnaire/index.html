@@ -33,31 +33,7 @@
       }
     </script>
 
-    <!-- Setup the Segment Consent Manager tag -->
-    <script src="https://unpkg.com/@segment/consent-manager@5.3.0/standalone/consent-manager.js" defer></script>
-
- 
-  </head>
-  
-  <body>
-    <h1>What is your favorite place to travel?</h1>
-    <p>I am building a directory of the sweetest travel destinations.</p>
-    <form name="travel" onsubmit="identify(event)">
-      What is your favorite travel destination?
-      <input name="destination" required="" size="81" type="text" />
-      <br /><br /><br />
-      Any recommendations (cool things to do, places to visit or restaurants to
-      eat)? <br /><br />
-      <textarea cols="81" name="details" required="" rows="10"> </textarea>
-      <br /><br />
-      Name: <input name="fullname" required="" size="75" type="text" />
-      <br /><br />
-      Email: <input name="email" required="" size="75" type="email" />
-      <br /><br />
-      <input name="submit" type="submit" value="submit" />
-    </form>
-
-    <!-- a.js snippet -->
+<!-- a.js snippet -->
     <script>
       !(function () {
         var analytics = (window.analytics = window.analytics || []);
@@ -121,6 +97,30 @@
           }
       })();
     </script>
+
+    <!-- Setup the Segment Consent Manager tag -->
+    <script src="https://unpkg.com/@segment/consent-manager@5.3.0/standalone/consent-manager.js" defer></script>
+
+ 
+  </head>
+  
+  <body>
+    <h1>What is your favorite place to travel?</h1>
+    <p>I am building a directory of the sweetest travel destinations.</p>
+    <form name="travel" onsubmit="identify(event)">
+      What is your favorite travel destination?
+      <input name="destination" required="" size="81" type="text" />
+      <br /><br /><br />
+      Any recommendations (cool things to do, places to visit or restaurants to
+      eat)? <br /><br />
+      <textarea cols="81" name="details" required="" rows="10"> </textarea>
+      <br /><br />
+      Name: <input name="fullname" required="" size="75" type="text" />
+      <br /><br />
+      Email: <input name="email" required="" size="75" type="email" />
+      <br /><br />
+      <input name="submit" type="submit" value="submit" />
+    </form>
 
     <!--Javascript that controls form submits and mapping user input data to Segment Analytics.js methods-->
     <script type="text/javascript">
