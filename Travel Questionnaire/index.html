@@ -4,7 +4,36 @@
     <title>Travel Questionnaire</title>
     <span id="selection-marker-1" class="redactor-selection-marker"></span>
     <link rel="stylesheet" type="text/css" href="styles.css" />
-<!-- a.js snippet -->
+
+    <div id="consent-manager"></div>
+
+    <button
+      type="button"
+      onclick="event.stopPropagation(); window.consentManager.openConsentManager()"
+    >
+      Data Collection and Cookie Preferences
+    </button>
+
+    <script type="application/javascript">
+      window.consentManagerConfig = function(exports) {
+        return {
+          container: '#consent-manager',
+          writeKey: '338EFbDMpz7Sp9D4LCj2VLxoCbv4ixG5',
+          bannerContent:
+            'We use cookies (and other similar technologies) to collect data to improve your experience on our site.',
+          bannerSubContent: 'You can change your preferences at any time.',
+          preferencesDialogTitle: 'Website Data Collection Preferences',
+          preferencesDialogContent:
+            'We use data collected by cookies and JavaScript libraries to improve your browsing experience, analyze site traffic, deliver personalized advertisements, and increase the overall performance of our site.',
+          cancelDialogTitle: 'Are you sure you want to cancel?',
+          cancelDialogContent:
+            "Your preferences have not been saved. By continuing to use our website, you're agreeing to our Website Data Collection Policy",
+          closeBehavior: 'accept'
+        }
+      }
+    </script>
+
+    <!-- a.js snippet -->
     <script>
       !(function () {
         var analytics = (window.analytics = window.analytics || []);
@@ -63,12 +92,16 @@
             };
             analytics._writeKey = "338EFbDMpz7Sp9D4LCj2VLxoCbv4ixG5";
             analytics.SNIPPET_VERSION = "4.15.3";
-            analytics.load("338EFbDMpz7Sp9D4LCj2VLxoCbv4ixG5");
+           // analytics.load("338EFbDMpz7Sp9D4LCj2VLxoCbv4ixG5");
             analytics.page();
           }
       })();
     </script>
-  </head>
+
+    <!-- Setup the Segment Consent Manager tag -->
+    <script src="https://unpkg.com/@segment/consent-manager@5.3.0/standalone/consent-manager.js" defer></script>
+
+</head>
   
   <body>
     <h1>What is your favorite place to travel?</h1>
