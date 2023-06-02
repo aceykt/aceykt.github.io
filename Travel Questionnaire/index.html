@@ -6,17 +6,14 @@
     <link rel="stylesheet" type="text/css" href="styles.css" />
 
     <!-- consent mgr -->
+    <div id="consent-manager"></div>
     <button type="button" onclick="event.stopPropagation(); window.consentManager.openConsentManager()">
       Data Collection and Cookie Preferences
     </button>
 
-    <div id="consent-manager"></div>
-
     <script type="application/javascript">
-      // document.addEventListener("DOMContentLoaded", function() {
       window.consentManagerConfig = function (exports) {
         return {
-          //Need to update with the container where you want Consent Manager to load
           container: "#consent-manager",
           writeKey: "338EFbDMpz7Sp9D4LCj2VLxoCbv4ixG5",
           bannerContent: "Consent manager is awesome! We use cookies (and other similar technologies) to collect data to improve your experience on our site. Also, Segment is Awesome",
@@ -26,8 +23,23 @@
           cancelDialogContent: "Your preferences have not been saved. By continuing to use our website, you are agreeing to our Website Data Collection Policy", closeBehavior: "accept",
         };
       };
-      // });
     </script>
+
+    <!--loads Prebuilt Consent Manager UI via Preact-->
+    <script src="https://unpkg.com/@segment/consent-manager@5.3.0/standalone/consent-manager.js" defer></script>
+    
+    <!-- a.js snippet -->
+        <script>
+          !(function () { var analytics = (window.analytics = window.analytics || []); if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else { analytics.invoked = !0; analytics.methods = [ "trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on", "addSourceMiddleware", "addIntegrationMiddleware", "setAnonymousId", "addDestinationMiddleware", ]; analytics.factory = function (e) { return function () { var t = Array.prototype.slice.call(arguments); t.unshift(e); analytics.push(t); return analytics; }; }; for (var e = 0; e < analytics.methods.length; e++) { var key = analytics.methods[e]; analytics[key] = analytics.factory(key); } analytics.load = function (key, e) { var t = document.createElement("script"); t.type = "text/javascript"; t.async = !0; t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js"; var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(t, n); analytics._loadOptions = e; };
+           //     analytics._writeKey = "338EFbDMpz7Sp9D4LCj2VLxoCbv4ixG5"; 
+                analytics.SNIPPET_VERSION = "4.15.3";
+           //     analytics.load("338EFbDMpz7Sp9D4LCj2VLxoCbv4ixG5");
+                analytics.page();
+              }
+          })();
+        </script>
+    
+    
   </head>
 
   <body>
@@ -47,20 +59,6 @@
       <br /><br />
       <input name="submit" type="submit" value="submit" />
     </form>
-
-    <!-- a.js snippet -->
-    <script>
-      !(function () { var analytics = (window.analytics = window.analytics || []); if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else { analytics.invoked = !0; analytics.methods = [ "trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on", "addSourceMiddleware", "addIntegrationMiddleware", "setAnonymousId", "addDestinationMiddleware", ]; analytics.factory = function (e) { return function () { var t = Array.prototype.slice.call(arguments); t.unshift(e); analytics.push(t); return analytics; }; }; for (var e = 0; e < analytics.methods.length; e++) { var key = analytics.methods[e]; analytics[key] = analytics.factory(key); } analytics.load = function (key, e) { var t = document.createElement("script"); t.type = "text/javascript"; t.async = !0; t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js"; var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(t, n); analytics._loadOptions = e; };
-       //     analytics._writeKey = "338EFbDMpz7Sp9D4LCj2VLxoCbv4ixG5"; 
-            analytics.SNIPPET_VERSION = "4.15.3";
-       //     analytics.load("338EFbDMpz7Sp9D4LCj2VLxoCbv4ixG5");
-            analytics.page();
-          }
-      })();
-    </script>
-
-<!--loads Prebuilt Consent Manager UI via Preact-->
-    <script src="https://unpkg.com/@segment/consent-manager@5.3.0/standalone/consent-manager.js" defer></script>
 
     <!--Javascript that controls form submits and mapping user input data to Segment Analytics.js methods-->
     <script type="text/javascript">
